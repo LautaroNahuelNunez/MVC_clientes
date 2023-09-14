@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -14,7 +14,9 @@
         <title>Control de clientes</title>
     </head>
     <body>
-        <h1>Control de clientes</h1>
+        <!-- Cabecero -->
+        <jsp:include page="WEB-INF/paginas/comunes/cabecero.jsp"/>
+        
         <ul>
             <c:forEach var="cliente" items="${clientes}"> <!-- recuperamos "clientes" de ServletControlador.jsp-->
                 <li>${cliente.idCliente} ${cliente.nombre} ${cliente.apellido} ${cliente.email} ${cliente.telefono} ${cliente.saldo}</li>
