@@ -17,6 +17,10 @@
         <!-- Cabecero -->
         <jsp:include page="WEB-INF/paginas/comunes/cabecero.jsp"/>
         
+        
+        <!-- BOTONES DE NAVEGACION -->
+        <jsp:include page="WEB-INF/paginas/comunes/botonesNavegacion.jsp"/>
+        
         <ul>
             <c:forEach var="cliente" items="${clientes}"> <!-- recuperamos "clientes" de ServletControlador.jsp-->
                 <li>${cliente.idCliente} ${cliente.nombre} ${cliente.apellido} ${cliente.email} ${cliente.telefono} ${cliente.saldo}</li>
