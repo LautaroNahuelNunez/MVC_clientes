@@ -17,7 +17,7 @@ public class ServletControlador extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         List<Cliente> clientes = new ClienteDaoJDBC().listar();
         System.out.println("clientes = " + clientes);
-        request.setAttribute("clientes", clientes); //atributo de nombre "clientes" que pasa a clientes.jsp
+        request.setAttribute("clientes", clientes); //atributo de nombre "clientes" que pasa a listadoClientes.jsp
         request.getRequestDispatcher("clientes.jsp").forward(request, response);
         
     }
