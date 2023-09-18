@@ -25,27 +25,49 @@
                         </thead>
                         <tbody>
                             <!-- Iteramos cada elemento de la lista de clientes -->
-                            
+
                             <c:forEach var="cliente" items="${clientes}"> <!-- items es la lista a iterar, la buscamos en el servlet -->
-                            
-                            <tr>
-                                <td>${cliente.idCliente}</td>
-                                <td>${cliente.nombre}</td>
-                                <td>${cliente.apellido}</td>
-                                <td>${cliente.email}</td>
-                                <td>${cliente.telefono}</td>
-                                <td> <fmt:formatNumber value="${cliente.saldo}" type="currency"/></td> <!-- currency es tipo moneda -->
-                                <td>
-                                    <a href="${pageContext.request.contextPath}/ServletControlador?accion=editar&idCliente=${cliente.idCliente}" class="btn btn-secondary">
-                                        <i class="fas fa-angle-double-right"></i>Editar
-                                    </a>
-                                </td>
-                            </tr>
+
+                                <tr>
+                                    <td>${cliente.idCliente}</td>
+                                    <td>${cliente.nombre}</td>
+                                    <td>${cliente.apellido}</td>
+                                    <td>${cliente.email}</td>
+                                    <td>${cliente.telefono}</td>
+                                    <td> <fmt:formatNumber value="${cliente.saldo}" type="currency"/></td> <!-- currency es tipo moneda -->
+                                    <td>
+                                        <a href="${pageContext.request.contextPath}/ServletControlador?accion=editar&idCliente=${cliente.idCliente}" class="btn btn-secondary">
+                                            <i class="fas fa-angle-double-right"></i>Editar
+                                        </a>
+                                    </td>
+                                </tr>
                             </c:forEach>
                         </tbody>
                     </table>
                 </div>
-            </div>            
+            </div>    
+            <!-- Inicio tarjetas para los totales -->
+            <div class="col-md-3">
+                <div class="card text-center bg-danger text-white mb-3">
+                    <div class="card-body">
+                        <h3>Saldo Total</h3>
+                        <h4 class="display-4">
+                            <fmt:formatNumber value="${saldoTotal}" type="currency" />
+                        </h4>
+                    </div>                    
+                </div>
+
+                <div class="card text-center bg-success text-white mb-3">
+                    <div class="card-body">
+                        <h3>Total Clientes</h3>
+                        <h4 class="display-4">
+                            <i class="fas fa-users"></i> ${totalClientes}
+                        </h4>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Fin tarjetas para los totales -->
         </div>        
     </div>
 </section>
