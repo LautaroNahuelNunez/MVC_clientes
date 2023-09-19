@@ -60,7 +60,7 @@ public class ClienteDaoJDBC {
             stmt = conn.prepareStatement(SQL_SELECT_BY_ID);
             stmt.setInt(1, cliente.getIdCliente()); //parametros: el 1 parámetro de la query
             rs = stmt.executeQuery();
-            rs.absolute(1); //nos posicionamos en el primer registro devuelto
+            rs.next(); //nos posicionamos en el primer registro devuelto
 
             String nombre = rs.getString("nombre");
             String apellido = rs.getString("apellido");

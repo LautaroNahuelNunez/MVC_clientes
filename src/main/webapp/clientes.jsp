@@ -13,16 +13,16 @@
     </head>
     <body>
         <!-- CABECERO -->
-        <jsp:include page="WEB-INF/paginas/comunes/cabecero.jsp"/>
+        <jsp:include page="/WEB-INF/paginas/comunes/cabecero.jsp"/>
         
         <!-- BOTONES DE NAVEGACION -->
-        <jsp:include page="WEB-INF/paginas/comunes/botonesNavegacion.jsp"/>
+        <jsp:include page="/WEB-INF/paginas/comunes/botonesNavegacion.jsp"/>
         
         <!-- LISTADO CLIENTES -->
-        <jsp:include page="WEB-INF/paginas/cliente/listadoClientes.jsp"/>
+        <jsp:include page="/WEB-INF/paginas/cliente/listadoClientes.jsp"/>
         
         <!-- PIE DE PAGINA --> 
-        <jsp:include page="WEB-INF/paginas/comunes/footer.jsp"/>
+        <jsp:include page="/WEB-INF/paginas/comunes/footer.jsp"/>
         
         
         <!-- Scripts de Bootstrap -->

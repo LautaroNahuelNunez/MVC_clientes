@@ -33,7 +33,7 @@
 
                     <div class="form-group">
                         <label for="saldo">Saldo</label>
-                        <input type="number" class="form-control" name="saldo" pattern="[0-9]{1,15}" required>
+                        <input type="number" class="form-control" name="saldo" pattern="[0-9]{1,15}" required step="any">
                     </div>
                 </div>
                 
