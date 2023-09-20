@@ -28,7 +28,7 @@
                                 <div class="card-header">
                                     <h4>Editar Cliente</h4>
                                 </div>
-                                <div>
+                                <div class="card-body">
                                     <div class="form-group">
                                         <label for="nombre">Nombre</label>
                                         <input type="text" class="form-control" name="nombre" pattern="[a-z A-Z ÁÉÍÓÚáéíóúÜüÑñ]{1,40}" title="Sin números, espacios o guiones" required value="${cliente.nombre}">
@@ -57,8 +57,7 @@
                             </div>                                
                         </div>
                     </div>
-                </div>
-                </div>                    
+                </div>                   
             </section>
 
         </form>

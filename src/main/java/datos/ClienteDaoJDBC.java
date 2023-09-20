@@ -10,8 +10,8 @@ public class ClienteDaoJDBC {
     private static final String SQL_SELECT = "SELECT id_cliente, nombre, apellido, email, telefono, saldo FROM clientes";
     private static final String SQL_SELECT_BY_ID = "SELECT id_cliente, nombre, apellido, email, telefono, saldo FROM clientes WHERE id_cliente = ?";
     private static final String SQL_INSERT = "INSERT INTO clientes (nombre, apellido, email, telefono, saldo) VALUES (?, ?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE cliente SET nombre = ?, apellido = ?, email = ?, telefono = ?, saldo = ? WHERE id_cliente = ?";
-    private static final String SQL_DELETE = "DELETE FROM cliente WHERE id_cliente = ?";
+    private static final String SQL_UPDATE = "UPDATE clientes SET nombre = ?, apellido = ?, email = ?, telefono = ?, saldo = ? WHERE id_cliente = ?";
+    private static final String SQL_DELETE = "DELETE FROM clientes WHERE id_cliente = ?";
 
     public List<Cliente> listar() { //Método para listar los clientes
         Connection conn = null;

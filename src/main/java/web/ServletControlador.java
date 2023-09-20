@@ -22,6 +22,9 @@ public class ServletControlador extends HttpServlet {
                 case "editar":
                     this.editarCliente(request, response); //Llamamos al método
                     break;
+                case "eliminar":
+                    this.eliminarCliente(request, response);
+                    break;
                 default:
                     this.accionDefault(request, response);
             }
@@ -61,6 +64,23 @@ public class ServletControlador extends HttpServlet {
         request.getRequestDispatcher(jspEditar).forward(request, response);
     }
     
+    
+    private void eliminarCliente (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        //recuperamos el valor del id del formulario editarCliente
+        
+        int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+        
+        //creamos el objeto de cliente (modelo)
+        Cliente cliente = new Cliente(idCliente);
+
+        //eliminamos el objeto de la BBDD
+        int registrosModificados = new ClienteDaoJDBC().eliminar(cliente);
+        System.out.println("registrosModificados = " + registrosModificados);
+
+        //redirigimos hacia la accion por default
+        this.accionDefault(request, response);
+    }
+    
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -69,6 +89,9 @@ public class ServletControlador extends HttpServlet {
             switch (accion) {
                 case "insertar":
                     this.insertarCliente(request, response); //Llamamos al método
+                    break;
+                case "modificar":
+                    this.modificarCliente(request, response);
                     break;
                 default:
                     this.accionDefault(request, response);
@@ -95,12 +118,38 @@ public class ServletControlador extends HttpServlet {
 
         //insertamos el nuevo objeto en la BBDD
         int registrosModificados = new ClienteDaoJDBC().insertar(cliente);
+        System.out.println("registrosModificados = " + registrosModificados);
 
         //redirigimos hacia la accion por default
         this.accionDefault(request, response);
 
     }
     
+    private void modificarCliente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //recuperamos los valores del formulario editarCliente
+        
+        int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String email = request.getParameter("email");
+        String telefono = request.getParameter("telefono");
+        double saldo = 0;
+        String saldoString = request.getParameter("saldo");
+        if (saldoString != null && !"".equals(saldoString)) { //si saldoString no es null ni es igual a una cadena vacia
+            saldo = Double.parseDouble(saldoString); //casteo y asigno
+        }
+
+        //creamos el objeto de cliente (modelo)
+        Cliente cliente = new Cliente(idCliente, nombre, apellido, email, telefono, saldo);
+
+        //modificamos el nuevo objeto en la BBDD
+        int registrosModificados = new ClienteDaoJDBC().actualizar(cliente);
+        System.out.println("registrosModificados = " + registrosModificados);
+
+        //redirigimos hacia la accion por default
+        this.accionDefault(request, response);
+
+    }
     
     
 }
