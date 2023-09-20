@@ -15,6 +15,7 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>#</th>
+                                <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>E-mail</th>
@@ -29,6 +30,7 @@
                             <c:forEach var="cliente" items="${clientes}" varStatus="status"> <!-- items es la lista a iterar, la buscamos en el servlet -->
 
                                 <tr>
+                                    <td>${status.count}</td>
                                     <td>${cliente.idCliente}</td> <!-- status.count nos da un valor autoincremental-->
                                     <td>${cliente.nombre}</td>
                                     <td>${cliente.apellido}</td>
